@@ -17,3 +17,33 @@ FSAPI简称API，它是一种对外的命令接口，它的原理非常简单-�
 过MRCP协议与其他语⾳产品对接（如mod_unimrcp）实现。
 
 callie表示嗓音（即人的声音，不同的人，音调和音色不同）
+
+## xml配置文件简介
+### freeswitch.xml
+```xml
+<?xml version="1.0"?>
+<document type="freeswitch/xml">
+<!-- #comment
+这是⼀个配置⽂件，本⾏是注释 -->
+<X-PRE-PROCESS cmd="include" data="vars.xml"/>
+<section name="configuration" description="Various Configuration">
+<X-PRE-PROCESS cmd="include" data="autoload_configs/*.xml"/>
+</section>
+</document>
+```
+有点类似.h或者库文件，就是将其他的xml文件加载到这个文件中，从而生成一个大的XML配置文件
+
+### vars.xml
+vars.xml主要通过X-PRE-PROCESS指令定义了一些全局变量，如：
+```xml
+    <X-PRE-PROCESS cmd="set" data="domain=$${local_ip_v4}"/>
+```
+在使用X-PRE-PROCESS设置的变量都称为全局变量，它们在FreeSwitch运行期间永远是有效的。而后面可能还会遇到局部变量，通常在拨号计划中，在一个呼叫的生命周期内才有效。如果需要引用这些变量，则全局变量以$${var}表示，临时变量以${var}表示<br/>
+可以使用global_getvar或这个API命令来查看这些变量的值
+```bash
+    global_getvar sound_prefix
+    global_getvar local_ip_v4
+```
+
+### autoload_configs目录
+autoload_configs目录下的各种配置文件会在系统启动时装入。一般来说都是模块级的配置文件（但是并不是所有的模块都是配置文件）。文件名一般以“模块名.conf.xml”的方式进行命名
