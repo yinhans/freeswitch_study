@@ -47,3 +47,65 @@ vars.xml主要通过X-PRE-PROCESS指令定义了一些全局变量，如：
 
 ### autoload_configs目录
 autoload_configs目录下的各种配置文件会在系统启动时装入。一般来说都是模块级的配置文件（但是并不是所有的模块都是配置文件）。文件名一般以“模块名.conf.xml”的方式进行命名
+
+### XML用户目录
+用户目录的默认配置文件在conf/directory/下，系统自带的配置文件为default.xml，内容如下
+```xml
+     <domain name="$${domain}">
+    <params>
+        <param name="jsonrpc-allowed-methods" value="verto"/>
+    </params>
+
+    <variables>
+      <variable name="record_stereo" value="true"/>
+      <variable name="default_gateway" value="$${default_provider}"/>
+      <variable name="default_areacode" value="$${default_areacode}"/>
+      <variable name="transfer_fallback_extension" value="operator"/>
+    </variables>
+
+    <groups>
+      <group name="default">
+	<users>
+	  <X-PRE-PROCESS cmd="include" data="default/*.xml"/>
+	</users>
+      </group>
+
+      <group name="sales">
+	<users>
+	  <!--
+	      type="pointer" is a pointer so you can have the
+	      same user in multiple groups.  It basically means
+	      to keep searching for the user in the directory.
+	  -->
+	  <user id="1000" type="pointer"/>
+	  <user id="1001" type="pointer"/>
+	  <user id="1002" type="pointer"/>
+	  <user id="1003" type="pointer"/>
+	  <user id="1004" type="pointer"/>
+	</users>
+      </group>
+
+      <group name="billing">
+	<users>
+	  <user id="1005" type="pointer"/>
+	  <user id="1006" type="pointer"/>
+	  <user id="1007" type="pointer"/>
+	  <user id="1008" type="pointer"/>
+	  <user id="1009" type="pointer"/>
+	</users>
+      </group>
+
+      <group name="support">
+	<users>
+	  <user id="1010" type="pointer"/>
+	  <user id="1011" type="pointer"/>
+	  <user id="1012" type="pointer"/>
+	  <user id="1013" type="pointer"/>
+	  <user id="1014" type="pointer"/>
+	</users>
+      </group>
+    </groups>
+
+  </domain>
+```
+$${domin}全局变量在vars.xml中设置，它默认的是主机的ip地址，可以修改为使用一个域名。在这里定义了一个dial-string，在使用user/name或sofia/internal/username@domain这样的呼叫字符串时，Freeswitch会根据username（以及domain）找到该dial-string，并最终扩展成用户实际的SIP地址。sofia_contact是一个API命令，它会根据用户的注册地址扩展成相应的呼叫字符串
