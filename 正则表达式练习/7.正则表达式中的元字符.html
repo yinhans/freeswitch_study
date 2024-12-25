@@ -10,7 +10,7 @@
       //元字符
       let hans = "hans2024";
       //贪婪模式 + 一个或者多个
-      console.log(hd.match(/\d+/g));
+      console.log(hans.match(/\d+/g));
       let phoneBook = `
         张三:010-99999999,李四:020-888888888
       `;
@@ -21,6 +21,31 @@
       phoneBook.match(/[^-\d:,]/g);
       //\s 空白 \S除了空白
       console.log(/\s/.test("\nhd"));
+
+      // \w 字母 数字 下划线 \w 囊括了 \d
+      let email = "2691619745@qq.com";
+      console.log(email.match(/^\w+@\w+\.\w+$/));
+      // \W 除了字母 数字 下划线
+      // a \w  5 10
+      /[a-z]\w{4,9}/;
+      let hans3 = "https://yinhans7.comhttps://sina1.cnhttp://hans.com";
+      console.log(hans3.match(/(https|http):\/\/\w+\.(com|cn)/g));
+      let hans5 = "hans123";
+      //. 包含除了换行符之外的字符
+      console.log(hans5.match(/.+/));
+      let hans6 = `
+        hans.com
+        yinhans.com
+      `;
+      console.log(hans6.match(/.+/)[0]);
+      //s 视为单行
+      console.log(hans6.match(/.+/gs)[0]);
+      //有空格的情况
+      let tel = "010 - 99999999";
+      console.log(tel.match(/\d+ - \d{8}/));
+      //匹配全部
+      let hans8 = "welcome to China";
+      console.log(hans8.match(/[\s\S]/));
     </script>
   </body>
 </html>
