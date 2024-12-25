@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //一、字面量形式
+      let hans = "yinhans7@163.com";
+      let b = "@";
+      console.log(/@/.test(hans)); //true
+      console.log(/b/.test(hans)); //字面量形式无法识别变量 false
+      //可以通过eval函数进行
+      console.log(eval(`/${b}/`).test(hans)); //true
+      //使用对象的形式
+      let reg = new RegExp("@", "g");
+    </script>
+  </body>
+</html>

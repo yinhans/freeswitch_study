@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //匹配电话号码 上海或北京
+      let reg = /^(010|020)\-\d{7,8}$/;
+      console.log(reg.test("010-23333333"));
+      //原子表 原子组中也有或的意思[]
+      let reg1 = /(12|34)/;
+    </script>
+  </body>
+</html>

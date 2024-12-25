@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let price = 23.34;
+      //.的含义 （1）优先级最高的含义除换行外任何字符 （2）普通的字符点
+      //d 普通字符串 \d 0-9的数字
+      let reg = /\d+\.\d+/;
+      //因为字符串中的"\d" 就是 "d"
+      let regObj = new RegExp("\\d+\\.\\d+", "g");
+      let url = "https://www.hans.com";
+      console.log(/https?:\/\/\w+\.\w+\.\w+/);
+    </script>
+  </body>
+</html>

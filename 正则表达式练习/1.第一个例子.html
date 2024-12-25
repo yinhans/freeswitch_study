@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    正则表达式
+    <script>
+      //提取字符串中的数字
+      // 第一种方法，使用字符串转数组
+      let hans = "hans2024/12/25_10:12";
+      let result = [...hans]
+        .filter((item) => {
+          return !Number.isNaN(parseInt(item));
+        })
+        .join("");
+      console.log(result); //2241225112
+      //第二种方法，使用正则表达式
+      let hansReg = hans.match(/\d/g);
+      console.log(hansReg.join(""));
+    </script>
+  </body>
+</html>

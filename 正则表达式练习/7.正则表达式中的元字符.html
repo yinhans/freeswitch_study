@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //元字符
+      let hans = "hans2024";
+      //贪婪模式 + 一个或者多个
+      console.log(hd.match(/\d+/g));
+      let phoneBook = `
+        张三:010-99999999,李四:020-888888888
+      `;
+      phoneBook.match(/\d{3}-\d{7,8}/g);
+      //\d 数字 \D 除了数字
+      phoneBook.match(/\D+/g);
+      //除了后面的元素，均需要
+      phoneBook.match(/[^-\d:,]/g);
+      //\s 空白 \S除了空白
+      console.log(/\s/.test("\nhd"));
+    </script>
+  </body>
+</html>
