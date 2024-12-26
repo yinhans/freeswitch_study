@@ -7,11 +7,9 @@
   </head>
   <body>
     <script>
-      const url = `
-        https://www.hans.com
-        hdcms.com
-    `;
-      console.log(url.match(/.+/s)[0]);
+      //a [L] 相应的字符属性可以在官网查询
+      let text1 = "hans123";
+      console.log(text1.match(/\p{L}/gu));
     </script>
   </body>
 </html>

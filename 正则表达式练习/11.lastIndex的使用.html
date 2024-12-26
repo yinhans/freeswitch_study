@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //lastIndex 控制正则表达式开始搜索的位置 可以保留结果中的组信息和索引位置
+      //在全局模式中，会记录上一次搜索的信息
+      let hans = "hans123";
+      console.log(hans.match(/\w/g));
+      let reg = /\w/g;
+      console.log(reg.lastIndex);
+      console.log(reg.exec(hans));
+      console.log(reg.lastIndex);
+    </script>
+  </body>
+</html>

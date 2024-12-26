@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let text = `
+        #1 js,200元 #
+        #2 php,300元 #
+        #8 Java,500元 嘤嘤嘤
+        #3 node.js,300元
+        `;
+      console.log(text.match(/\s*#\d+\s+.+\s+#/));
+      //m 将多行文本的每一行单独处理
+      console.log(text.match(/^\s*#\d+\s+.+\s+#$/gm));
+    </script>
+  </body>
+</html>

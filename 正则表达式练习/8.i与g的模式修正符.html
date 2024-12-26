@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //模式修正符将正则表达式的运行方式发生改变
+      let text = "yinhans7@Hans.com";
+      //i 忽视大小写
+      console.log(text.match(/n/i));
+      //g 全局匹配
+      console.log(text.match(/n/g));
+      console.log(text.match(/N/gi));
+      let result = text.replace(/n/gi, "@");
+    </script>
+  </body>
+</html>
